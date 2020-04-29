@@ -51,7 +51,7 @@
 	<build>
 		<plugins>
 			<!-- don't pack the war -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<executions>
@@ -71,7 +71,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>com.googlecode.addjars-maven-plugin</groupId>
 				<artifactId>addjars-maven-plugin</artifactId>
