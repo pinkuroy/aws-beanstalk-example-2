@@ -13,7 +13,7 @@ public class HelloController {
     @GetMapping
     public String hello() {
     	
-        return "Hello AWS - port changed - 50002" + getDistance().toString() ;
+        return "Hello AWS - port changed - 50002:updated latest -002" + getDistance().toString() ;
     }
     
     public Distance getDistance() {

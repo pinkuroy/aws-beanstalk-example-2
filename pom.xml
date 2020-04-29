@@ -19,6 +19,14 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<!-- DO NOT set id to "local" because it is reserved by Maven -->
+			<id>lib</id>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,38 +51,23 @@
 			<groupId>com.spt</groupId>
 			<artifactId>common</artifactId>
 			<version>0.0.7-SNAPSHOT</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/common-0.0.7-SNAPSHOT.jar</systemPath>
+			<!-- <scope>system</scope>
+			<systemPath>${basedir}/lib/common-0.0.7-SNAPSHOT.jar</systemPath> -->
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<!-- don't pack the war -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
+				<executions> <execution> <id>default-war</id> <phase>none</phase> </execution> 
+				<execution> <id>war-exploded</id> <configuration> <webappDirectory>target/deploy</webappDirectory> 
+				<archiveClasses>true</archiveClasses> </configuration> <phase>prepare-package</phase> 
+				<goals> <goal>exploded</goal> </goals> </execution> </executions> </plugin> -->
 			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>default-war</id>
-						<phase>none</phase>
-					</execution>
-					<execution>
-						<id>war-exploded</id>
-						<configuration>
-							<webappDirectory>target/deploy</webappDirectory>
-							<archiveClasses>true</archiveClasses>
-						</configuration>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>exploded</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
-			<plugin>
 				<groupId>com.googlecode.addjars-maven-plugin</groupId>
 				<artifactId>addjars-maven-plugin</artifactId>
+				<version>1.0.5</version>
 				<executions>
 					<execution>
 						<goals>
@@ -90,6 +83,33 @@
 					</execution>
 				</executions>
 			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+				<executions>
+					<execution>
+						<id>install-external</id>
+						<phase>clean</phase>
+						<configuration>
+							<file>${basedir}/lib/common-0.0.7-SNAPSHOT.jar</file>
+							<repositoryLayout>default</repositoryLayout>
+							<groupId>com.spt</groupId>
+							<artifactId>common</artifactId>
+							<version>0.0.7-SNAPSHOT</version>
+							<packaging>jar</packaging>
+							<generatePom>true</generatePom>
+						</configuration>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+
+
 		</plugins>
 	</build>
 
