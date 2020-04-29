@@ -13,13 +13,14 @@ public class HelloController {
     @GetMapping
     public String hello() {
     	
-        return "Hello AWS - port changed - 5000" + getDistance().toString() ;
+        return "Hello AWS - port changed - 50002" + getDistance().toString() ;
     }
     
     public Distance getDistance() {
     	Distance d=new Distance();
     	d.setDestLat("1000001");
     	d.setDestLong("1000002");
+    	d.setDestName("India");
     	return d;
     }
 }

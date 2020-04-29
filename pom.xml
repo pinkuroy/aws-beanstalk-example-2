@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.techprimers.aws</groupId>
 	<artifactId>aws-elastic-beanstalk-example-2</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>aws-elastic-beanstalk-example-2</name>
 	<description>Demo project for Spring Boot with AWS and CodePipeline</description>
