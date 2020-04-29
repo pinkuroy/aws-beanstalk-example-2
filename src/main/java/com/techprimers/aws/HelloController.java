@@ -4,12 +4,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spt.common.vo.Distance;
+
 @RequestMapping("/hello")
 @RestController
 public class HelloController {
 
     @GetMapping
     public String hello() {
-        return "Hello TechPrimers";
+    	
+        return "Hello AWS - port changed - 5000" + getDistance().toString() ;
+    }
+    
+    public Distance getDistance() {
+    	Distance d=new Distance();
+    	d.setDestLat("1000001");
+    	d.setDestLong("1000002");
+    	return d;
     }
 }
