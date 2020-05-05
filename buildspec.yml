@@ -9,17 +9,20 @@ phases:
     commands:
     - echo "Entered build phase"
 #    - mvn clean prepare-package war:exploded
-    - mvn clean package
+    - mvn package
   post_build:
     commands:
     - echo "Entered the post-build phase"
     - mv target/aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT.war aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT.war
+    - echo "moved to present directory....."
 #    - mv target/deploy ./
 artifacts:
   files:
 #    - deploy/**/*
 #    - '**/*'
-    - aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT.war
+    - ./aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT.war
+    - echo "line ---------------------- 1"
     - .ebextensions/**/*
+    - echo "line..................... 2"
   base-directory: 'target/aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT'
     
