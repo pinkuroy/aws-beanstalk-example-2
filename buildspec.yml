@@ -20,7 +20,7 @@ artifacts:
   files:
 #    - deploy/**/*
 #    - '**/*'
-    - aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT.war
+    - target/aws-elastic-beanstalk-example-2-0.0.4-SNAPSHOT.war
     - echo "line ---------------------- 1"
     - .ebextensions/**/*
     - echo "line..................... 2"
